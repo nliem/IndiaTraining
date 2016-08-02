@@ -1,0 +1,47 @@
+package project;
+
+import java.util.HashMap;
+
+import interfaces.Manager;
+
+public class ProjectManager implements Manager<Project>{
+	
+	private HashMap<Integer, Project> projectList;
+	private static ProjectManager instance;
+	
+	public static ProjectManager getInstance(){
+		if(instance == null){
+			instance = new ProjectManager();
+		}
+		return instance;
+	}
+	
+	private ProjectManager(){
+		this.projectList = new HashMap<Integer, Project>();
+	}
+
+	@Override
+	public void add(Project newvalue) {
+		//TODO 
+		
+	}
+
+	@Override
+	public void remove(int identification) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void displayInformation(int identification) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void displayAllData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

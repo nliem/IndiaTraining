@@ -1,0 +1,11 @@
+package donation;
+
+public class Donation {
+	
+	private int donorId;
+	private int projectId;
+	private double amount;
+	
+
+
+}

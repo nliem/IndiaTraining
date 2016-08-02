@@ -1,0 +1,40 @@
+package donor;
+
+import java.util.HashMap;
+
+import exceptions.UnknownIdException;
+import interfaces.Manager;
+
+public class DonorManager implements Manager<Donor> {
+	
+	private HashMap<Integer, Donor> donorList;
+
+	@Override
+	public void add(Donor newvalue) {
+		donorList.put(newvalue.getDonorId(), newvalue);	
+	}
+
+	@Override
+	public void remove(int identification) throws UnknownIdException {
+		if(!donorList.containsKey(identification)){
+			throw new UnknownIdException("No Donor found with id " + identification);
+		}
+	}
+
+	@Override
+	public void displayInformation(int identification) throws UnknownIdException {
+		Donor donor = donorList.get(identification);
+		if(donor == null){
+			throw new UnknownIdException("No Donor found with id " + identification);
+		}
+		System.out.println(donor.toString());	
+	}
+
+	@Override
+	public void displayAllData() {
+		for(int key : donorList.keySet()){
+			System.out.println(donorList.get(key).toString());
+		}
+	}
+
+}

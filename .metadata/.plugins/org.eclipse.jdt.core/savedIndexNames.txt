@@ -1,0 +1,6 @@
+INDEX VERSION 1.127+C:\Users\nliem\Desktop\NLiem\IndiaTraining\.metadata\.plugins\org.eclipse.jdt.core
+2817460433.index
+2735271508.index
+3983748772.index
+1859137815.index
+3573420641.index
