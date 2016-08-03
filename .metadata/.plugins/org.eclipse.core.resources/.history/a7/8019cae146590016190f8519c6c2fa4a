@@ -1,0 +1,8 @@
+package application;
+
+import interfaces.MyDAO;
+
+public class DonorDAO implements MyDAO<Donor> {
+
+
+}

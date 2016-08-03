@@ -1,0 +1,56 @@
+package application;
+
+import java.sql.Connection;
+import java.util.List;
+
+import interfaces.MyDAO;
+import utils.MySQLConnection;
+
+public class DonorDAO implements MyDAO<Donor> {
+	
+	private Connection con = null;
+	
+	public DonorDAO(){
+		super();
+		this.con = MySQLConnection.getMyOracleConnection();
+	}
+	
+	public DonorDAO(Connection con){
+		super();
+		this.con = con;
+	}
+
+	@Override
+	public int add(Donor thingToAdd) {
+		int rowAdded = 0;
+		
+		return rowAdded;
+		
+	}
+
+	@Override
+	public int update(long id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Donor find(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete(long id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Donor> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}
