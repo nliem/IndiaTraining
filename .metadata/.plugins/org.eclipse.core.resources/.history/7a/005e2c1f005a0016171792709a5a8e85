@@ -1,0 +1,14 @@
+package classes;
+
+public class CurrencyConverter {
+	
+	public double usdToINR(double usd){
+		if(usd == 6001){
+			return usd * 70.00;
+		}
+		else{
+			return usd * 60.00;
+		}
+	}
+
+}

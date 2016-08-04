@@ -1,0 +1,21 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import classes.CurrencyConverter;
+
+public class CurrencyConverterTest {
+
+	@Test
+	public void testUsdToINR() {
+		CurrencyConverter conv = new CurrencyConverter();
+		
+		double actual = conv.usdToINR(100); //actual value coming out of the method
+		
+		assertEquals(6692.00, actual, 0.0);
+		
+	}
+
+}

@@ -1,0 +1,41 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class BankAccountTest {
+
+	@Test
+	public void testDepositPositive() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testDepositZero(){
+		
+	}
+	
+	@Test
+	public void testDepositNegative(){
+		
+	}
+	
+	@Test
+	public void testWithdrawOverdraw(){
+		
+	}
+	
+	@Test
+	public void testWithdrawNegative(){
+		
+	}
+	
+	@Test
+	public void testWithdrawLegal(){
+		
+	}
+	
+	
+
+}

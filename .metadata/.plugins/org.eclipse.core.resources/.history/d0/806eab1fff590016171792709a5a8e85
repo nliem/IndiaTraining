@@ -1,0 +1,10 @@
+package classes;
+
+public class CurrencyConverter {
+	
+	public double usdToINR(double usd){
+		return usd * 66.92;
+		
+	}
+
+}

@@ -1,0 +1,41 @@
+package classes;
+
+import java.text.DecimalFormat;
+
+public class BankAccount {
+
+	private int accountNumber;
+	private double balance;
+	private StringBuilder passBook;
+	private String accountHolderName;
+	
+	public BankAccount(int accountNumber, String name, double startBalance) throws InvalidAmountException, InvalidAccountNumberException{
+		
+	}
+	
+	public double deposit(double deposit) throws InvalidAmountException{
+		if(deposit <= 0){
+			DecimalFormat df = new DecimalFormat("#.00");
+			throw new InvalidAmountException("The value $" + df.format(deposit) + " is not valid for deposit.");
+		}
+		else{
+			balance += deposit;
+			return balance;
+		}
+	}
+	
+	public double withdraw(double withdrawal) throws InsufficientBalanceException, InvalidAmountException{
+		DecimalFormat df = new DecimalFormat("#.00");
+		if(withdrawal > balance){
+			throw new InsufficientBalanceException("Insufficient for withdrawal of $" + df.format(withdrawal));
+		}
+		else if(withdrawal < 0){
+			throw new InvalidAmountException("The value $" + df.format(withdrawal) + " is not valid for withdrawal");
+		}
+		else{
+			balance -= withdrawal;
+			return balance;
+		}
+	}
+
+}

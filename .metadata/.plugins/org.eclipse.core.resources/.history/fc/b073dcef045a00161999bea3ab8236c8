@@ -1,0 +1,26 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import classes.PrintGrades;
+
+public class PrintGradesTest {
+	
+	private static PrintGrades pg;
+	
+	@BeforeClass
+	public static void init(){
+		pg = new PrintGrades();
+	}
+
+	@Test
+	public void testFindResult35() {
+		String result = pg.findResult(35);
+		
+		assertEquals("D", result);
+	}
+
+}
