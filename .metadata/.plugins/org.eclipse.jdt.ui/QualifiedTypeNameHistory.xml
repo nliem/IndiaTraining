@@ -47,4 +47,9 @@
 <fullyQualifiedTypeName name="classes.BankAccount"/>
 <fullyQualifiedTypeName name="classes.InvalidAmountException"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="org.apache.log4j.BasicConfigurator"/>
+<fullyQualifiedTypeName name="org.apache.log4j.ConsoleAppender"/>
+<fullyQualifiedTypeName name="org.apache.log4j.PatternLayout"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 </qualifiedTypeNameHistroy>

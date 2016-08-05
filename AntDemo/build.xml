@@ -1,0 +1,48 @@
+<project default = "run">
+
+	<property name = "jarTarget" value = "jars" />
+	<property name = "jarFile" value = "jfile.jar" />
+	<property name = "destDir" value = "build/classes" />
+	<property name = "mainclass" value = "com.training.TestGreet" />
+		
+
+	<target name = "clean">
+		<delete dir = "build"/>
+	</target>
+	
+	<target name = "compile" depends = "clean">
+		<mkdir dir = "build/classes"/>
+		<javac srcdir = "src" destdir = "build/classes"/>
+	</target>
+
+	<target name = "run" depends = "compile">
+		<java classname = "com.training.TestGreet" fork = "true">
+			<classpath>
+				<path location = "build/classes" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name = "jar" depends = "compile">
+		<mkdir dir = "${jarTarget}"/>
+		<jar destfile = "${jarTarget}/${jarFile}" basedir = "${destDir}">
+			<fileset dir = "${destDir}"/>
+			<fileset dir = "src" includes = "**/*.java"/>
+			<manifest>
+				<attribute name = "Main-Class" value = "${mainclass}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name = "doc" depends = "compile" description = "generate documentation">
+		<javadoc sourcepath = "src" destdir = "doc" windowtitle = "ANT Application" sourcefiles = "src/*.java">
+			<bottom>
+				<![CDATA[Copyright 2013.-18 All Rights Reserved.]]>
+			</bottom>
+			<group title = "core packages" packages = "com.training.*"/>
+		</javadoc>
+		<echo message = "java doc has been generaged!" />
+	</target>
+	
+</project>
+		
