@@ -1,9 +1,0 @@
-package fuckassessments;
-
-public class Employee {
-	String name, int empid;
-	public static void main(String[] args){
-		
-	}
-
-}
