@@ -12,6 +12,7 @@ public class DonorManager implements Manager<Donor> {
 	
 	private DonorManager(){
 		//set up DonorDao instance
+		this.dao = new DonorDao();
 	}
 	
 	public static DonorManager getInstance(){

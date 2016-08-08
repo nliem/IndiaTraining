@@ -48,6 +48,12 @@ public class Image {
 		this.image_caption = caption;
 	}
 	
+	@Override 
+	public String toString(){
+		//TODO DO THISSSSSS
+		return null;
+	}
+	
 	public int getImageId(){
 		return this.image_id;
 	}
