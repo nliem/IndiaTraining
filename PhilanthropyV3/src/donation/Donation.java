@@ -35,7 +35,7 @@ public class Donation {
 		return this.project_id;
 	}
 	
-	private double getDonationAmount(){
+	public double getDonationAmount(){
 		return this.donation_amount;
 	}
 	
