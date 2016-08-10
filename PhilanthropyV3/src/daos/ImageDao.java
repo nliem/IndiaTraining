@@ -10,6 +10,7 @@ import java.util.Collection;
 import exceptions.NullValueException;
 import image.Image;
 import interfaces.Dao;
+import oracle.jdbc.OracleTypes;
 import utilities.MySQLConnection;
 
 public class ImageDao implements Dao<Image>{
@@ -53,10 +54,10 @@ public class ImageDao implements Dao<Image>{
 		try{
 			CallableStatement cstatement = con.prepareCall("{CALL FIND_IMAGE(?,?)}");
 			cstatement.setInt(1, id);
-			cstatement.registerOutParameter(2, java.sql.Types.REF_CURSOR);
+			cstatement.registerOutParameter(2, OracleTypes.CURSOR);
 			
 			cstatement.execute();
-			ResultSet results = cstatement.getArray(2).getResultSet();
+			ResultSet results = (ResultSet) cstatement.getObject(2);
 			
 			if(!results.first()){
 				System.out.println("No Image foudn with id " + id);
@@ -80,9 +81,9 @@ public class ImageDao implements Dao<Image>{
 		
 		try{
 			CallableStatement cstatement = con.prepareCall("{CALL FIND_ALL_IMAGES(?)}");
-			cstatement.registerOutParameter(1, java.sql.Types.REF_CURSOR);
+			cstatement.registerOutParameter(1, OracleTypes.CURSOR);
 			cstatement.execute();
-			ResultSet results = cstatement.getArray(1).getResultSet();
+			ResultSet results = (ResultSet) cstatement.getObject(1);
 			
 			while(results.next()){
 				Image image = new Image(results.getInt(1), results.getInt(2), results.getString(3), results.getString(4), results.getString(5));

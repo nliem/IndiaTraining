@@ -1,0 +1,5 @@
+Abstract class Insurance -> LifeInsurance, HealthInsurance, VehicleInsurance
+
+
+Interface Factory -> Insurance Factory
+(getInstance() Method)

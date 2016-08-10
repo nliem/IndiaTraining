@@ -10,6 +10,7 @@ import java.util.Collection;
 import donor.Donor;
 import exceptions.NullValueException;
 import interfaces.Dao;
+import oracle.jdbc.OracleTypes;
 import utilities.MySQLConnection;
 
 public class DonorDao implements Dao<Donor>{
@@ -53,10 +54,10 @@ public class DonorDao implements Dao<Donor>{
 		try{
 			CallableStatement cstatement = con.prepareCall("{CALL FIND_DONOR(?,?)}");
 			cstatement.setInt(1, id);
-			cstatement.registerOutParameter(2, java.sql.Types.REF_CURSOR);
+			cstatement.registerOutParameter(2, OracleTypes.CURSOR);
 			cstatement.execute();
 			
-			ResultSet results = cstatement.getArray(2).getResultSet();
+			ResultSet results = (ResultSet) cstatement.getObject(2);
 			if(!results.first()){
 				System.out.println("No Donor with id " + id + " was found.");
 				return donor;
@@ -79,10 +80,10 @@ public class DonorDao implements Dao<Donor>{
 		
 		try{
 			CallableStatement cstatement = con.prepareCall("{CALL FIND_ALL_DONORS(?)}");
-			cstatement.registerOutParameter(1, java.sql.Types.REF_CURSOR);
+			cstatement.registerOutParameter(1, OracleTypes.CURSOR);
 			cstatement.execute();
 			
-			ResultSet results = cstatement.getArray(1).getResultSet();
+			ResultSet results = (ResultSet) cstatement.getObject(1);
 			while(results.next()){
 				Donor donor = new Donor(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4));
 				donorList.add(donor);

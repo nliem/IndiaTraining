@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import oracle.jdbc.driver.OracleTypes;
 
 import donation.Donation;
 import exceptions.InvalidAmountException;
@@ -51,10 +52,10 @@ public class DonationDao implements Dao<Donation>{
 			CallableStatement cstatement = this.con.prepareCall("{CALL FIND_DONATION(?,?)}");
 			
 			cstatement.setInt(1, id);
-			cstatement.registerOutParameter(2, java.sql.Types.REF_CURSOR);
+			cstatement.registerOutParameter(2, OracleTypes.CURSOR);
 			
 			cstatement.execute();
-			ResultSet result = cstatement.getArray(2).getResultSet();
+			ResultSet result = (ResultSet) cstatement.getObject(2);
 			
 			if(!result.first()){
 				System.out.println("No donation with id " + id + " was found.");
@@ -78,9 +79,9 @@ public class DonationDao implements Dao<Donation>{
 		try{
 			CallableStatement cstatement = this.con.prepareCall("{CALL FIND_ALL_DONATIONS(?)}");
 			
-			cstatement.registerOutParameter(1, java.sql.Types.REF_CURSOR);
+			cstatement.registerOutParameter(1, OracleTypes.CURSOR);
 			cstatement.execute();
-			ResultSet results = cstatement.getArray(1).getResultSet();
+			ResultSet results = (ResultSet) cstatement.getObject(1);
 			
 			while(results.next()){
 				Donation donation = new Donation(results.getInt(1), results.getInt(2), results.getInt(3),results.getDouble(4));

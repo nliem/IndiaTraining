@@ -57,7 +57,7 @@ public class ProjectDao implements Dao<Project>{
 			cstatement.registerOutParameter(2, java.sql.Types.REF_CURSOR);
 			cstatement.execute();
 			
-			ResultSet results = cstatement.getArray(2).getResultSet();
+			ResultSet results = (ResultSet) cstatement.getObject(2);
 			if(!results.first()){
 				System.out.println("No Project found with id " + id);
 				return project;
@@ -81,7 +81,7 @@ public class ProjectDao implements Dao<Project>{
 			CallableStatement cstatement = con.prepareCall("{CALL FIND_ALL_PROJECTS(?)}");
 			cstatement.registerOutParameter(1, java.sql.Types.REF_CURSOR);
 			cstatement.execute();
-			ResultSet results = cstatement.getArray(1).getResultSet();
+			ResultSet results = (ResultSet) cstatement.getObject(1);
 			
 			while(results.next()){
 				Project project = new Project(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4),results.getDouble(5));
