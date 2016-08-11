@@ -1,0 +1,8 @@
+Strategy
+
+PaymentStrategy (Interface) -> public void pay(double amount);
+
+2 Impls -> Cash and CreditCard
+
+1 Context : Patient with a setter method for Strategy
+

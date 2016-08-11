@@ -1,0 +1,10 @@
+Hotel Reservation
+	>Aggregates the availability of 3 different hotel
+
+Flight Reservation
+	>Aggregates the availability of 3 different airlines
+	
+Reservation Facade
+	>Takes the Date as Input and lists the availability of hotel & airlines
+
+Client

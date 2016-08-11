@@ -1,0 +1,8 @@
+Interface Subject: public void grantPermission();
+					public void setEmpGrade(int empGrade);
+
+Real Subject -> With implementation
+
+Proxy Subject -> with ral subject and calling the actual object
+
+Proxy Client -> Client
