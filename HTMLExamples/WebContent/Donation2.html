@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+		<form id="formid" oninput = "out.value = parseInt(portal.value) + parseInt(project.value)">
+		
+			<table>
+				<tr>
+					<td>
+						<label>Label 1:</label>
+					</td>
+					<td>
+						<select>
+							<option>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+							<option>Option 5</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Label 2:</label>
+					</td>
+					<td>
+						<input type = "number" id = "project"></input>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Label 3:</label>
+					</td>
+					<td>
+						<input type = "number" id = "portal" min="50" max = "500" value = "50"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label>Label 4:</label>
+					</td>
+					<td>
+						<output id = "out" name = "out" for = "portal project">0</output>
+					</td>
+				</tr>
+			
+			</table>
+		
+		</form>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+h1{
+	text-align: center;
+}
+
+body{
+	
+}
+
+header{
+	width: 100%;
+	height: 60%;
+}
+
+#logo{
+	float: right;
+	width: 100px;
+	height: 100px;
+}
+
+#caption{
+	float: left;
+	/*font-family: serif;*/
+	font-size: 1.4em;
+}
+
