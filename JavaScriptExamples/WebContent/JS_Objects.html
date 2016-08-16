@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		
+		<script type = "text/javascript">
+			var models = new Array("LCD TV", "Air Conditioner");
+			var descriptions = new Array("images/led.jpg", "images/ac.jpg");
+			var colors = new Array("green", "red");
+		
+			function display(){
+				for(i = 0; i < 2 ; i++){
+					var name = document.getElementsByTagName("h2")[i];
+					name.innerHTML = models[i];
+					
+					var color = document.getElementsByTagName("h3")[i];
+					color.innerHTML = colors[i];
+					
+					var element = document.getElementsByTagName("img")[i];
+					element.setAttribute('src', descriptions[i]);
+				}
+			}
+		</script>
+	
+	</head>
+	
+	<body>
+	
+		<h2></h2>
+		<h3></h3>
+		<br/>
+		<img src = "" alt = "product" style = "width:100px; height:100px" />
+		<br/><br/>
+		<hr>
+		
+		<h2></h2>
+		<h3></h3>
+		<br/>
+		<img src = "" alt = "bleh" style = "width:100px; height:100px"/>
+		
+		<script type = "text/javascript">
+			display();
+		</script>
+	
+	</body>
+</html>

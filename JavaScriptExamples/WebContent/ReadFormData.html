@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		
+		<link type = "text/css" rel = "stylesheet" href = "css/TestStyle.css" />
+		
+		<script type = "text/javascript">
+			function readData(){
+				var element = document.getElementById("usrName");
+				var value = element.value;
+				
+				if(value.length < 7){
+					var validElem = document.getElementById("usernameSpan");
+					validElem.innerHTML = "<b style='color:red'>Username must be at least 7 characters.</b>"
+				}
+				else{
+					var validElem = document.getElementById("usernameSpan");
+					validElem.innerHTML = "<b style='color:green'>Valid Username</b>"
+				}
+				
+				console.log(value);
+			}
+			
+			function hideMessage(){
+				var elem = document.getElementById("usernameSpan");
+				elem.innerHTML = "";
+			}
+			
+			function displayHelpUn(){
+				var elem = document.getElementById("helpSpan");
+				elem.innerHTML = "Enter a username at least 7 characters long...";
+			}
+			
+			function displayHelpPw(){
+				var elem = document.getElementById("helpSpan");
+				elem.innerHTML = "Enter a password that's good...";
+			}
+			
+			function hideHelp(){
+				var elem = document.getElementById("helpSpan");
+				elem.innerHTML = "";
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		<form>
+			<label>
+				User Name:
+			</label>
+			<input type = "text" name = "userName" id = "usrName" onblur = "readData()" onfocus="hideMessage()"
+			onmouseover = "displayHelpUn()" onmouseout="hideHelp()"/>
+			
+			<span id=usernameSpan>
+			</span>
+			
+			<br/><br/>
+			
+			<label>
+				Password:
+			</label>
+			
+			<input type = "password" name = "password" id = "password" onmouseover = "displayHelpPw()" onmouseout="hideHelp()" />
+			
+			<br/><br/>
+			
+			<input type = "button" value = "read" onclick="readData()" />
+			
+			<br/><br/>
+			
+			<span id=helpSpan></span>
+		</form>
+	
+	</body>
+</html>
