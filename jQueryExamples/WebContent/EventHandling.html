@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		<script type = "text/javascript" src = "scripts/jquery.js"></script>
+		
+		<script type = "text/javascript">
+			$(function(){
+				
+				/*
+				$("table tr").on("mouseover", function(){$(this).addClass('style1')}).
+					on("mouseout", function(){$(this).
+						removeClass('style1')});
+				*/
+			
+				$("#btn1").click(function(){
+					var row = $("<tr><td>Ankit</td><td>CSS</td></tr>");
+					$("#tbl").append(row);
+				});
+				
+				$(document).on("mouseover", "table tr", function(){
+					$(this).addClass('style1')}).
+					on("mouseout", "table tr", function(){$(this).
+						removeClass('style1')
+				})
+			});
+			
+		</script>
+		
+		<style type = "text/css">
+			table{
+				border: 2px solid black;
+				bordr-collapse: collapse;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.style1{
+				background-color: fuchsia;
+			}
+		</style>
+		
+	</head>
+	
+	
+	
+	<body>
+	
+		<table id = "tbl">
+		
+			<tr>
+				<td>Name</td>
+				<td>Skill</td>
+			</tr>
+			
+			<tr>
+				<td>Person 1</td>
+				<td>Skill 1</td>
+			</tr>
+			
+			<tr>
+				<td>Person 2</td>
+				<td>Skill 2</td>
+			</tr>
+			
+			<tr>
+				<td>Person 2</td>
+				<td>Skill 2</td>
+			</tr>
+		
+		</table>
+		
+		<div style = "text-alight: center;">
+			<button id = "btn1">Add</button>
+		</div>
+	
+	</body>
+</html>

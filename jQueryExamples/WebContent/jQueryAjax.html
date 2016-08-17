@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		<script type = "text/javascript" src = "scripts/jquery.js"></script>
+		<script type = "text/javascript">
+		
+			var options = {
+				type : "GET",
+				url : "http://jsonplaceholder.typicode.com/users",
+				data : {},
+				dataType: "html",
+				error: function(xhr, textStatus, errorThrown){
+					alert("Error.");
+				},
+				success: function(resp, textStatus){
+					$("#name").text(resp);
+				}
+			}
+			$(function(){
+				var selectedCode = $("#code").val();
+				
+			});
+
+		</script>
+	</head>
+	<body>
+		<section>
+			<form action = "">
+				<fieldset>
+				
+					<legend>jQuery Ajax Example</legend>
+					
+					<div>
+						<label>User Code:</label>
+						<input type = "text" name = "code" id = "code"/>
+					</div>
+					<div>
+						<label>Username: </label>
+						<input type = "text" name = "name" id = "name" />
+					</div>
+					<div>
+						<input type = "submit" value = "Submit"/>
+					</div>
+				</fieldset>
+				
+			</form>
+		</section>
+	
+	</body>
+</html>

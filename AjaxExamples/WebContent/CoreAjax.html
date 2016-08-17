@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		<script type = "text/javascript">
+		
+			var req = new XMLHttpRequest();
+			var targetElement;
+		
+			function getData(){
+				var userCode = document.getElementById("code");
+				console.log("User Code: " + userCode.value);
+				targetElement = document.getElementById("name");
+				var queryString = "http://jsonplaceholder.typicode.com/users/" + escape(userCode.value);
+				req.open("GET", queryString, true);
+				req.onreadystatechange = processRequest;
+				req.send(null);
+			}
+			
+			function processRequest(){
+				if(req.status == 200 && req.readyState == 4){
+					var data = req.responseText;
+					var jsonobj = JSON.parse(data);
+					userName = jsonobj.name;
+					targetElement.value = userName;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<section>
+			<form action = "">
+				<fieldset>
+				
+					<legend>Core Ajax Example</legend>
+					
+					<div>
+						<label>User Code:</label>
+						<input type = "text" name = "code" id = "code" onblur = "getData()"/>
+					</div>
+					<div>
+						<label>Username: </label>
+						<input type = "text" name = "name" id = "name" />
+					</div>
+					<div>
+						<input type = "submit" value = "Submit"/>
+					</div>
+				</fieldset>
+				
+			</form>
+		</section>
+	
+	</body>
+</html>
