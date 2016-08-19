@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+	<book>
+		<bookNumber>101</bookNumber>
+		<bookName>Head First Java</bookName>
+		<price currency = "INR">450.00</price>
+	</book>
+	
+	<book>
+		<bookNumber>102</bookNumber>
+		<bookName>Effective Java</bookName>
+		<price currency = "USD">550.00</price>
+	</book>
+</books>
