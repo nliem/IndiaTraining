@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Form Selector</title>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<link type = "text/css" href = "style/stylesheet1.css" rel = "stylesheet" />
+		<script type = "text/javascript" src = "scripts/script1.js"></script>
+	</head>
+	
+	
+	<body>
+	
+		<div id = "pageTitle" class = "center">
+			<h1 class = "noMargin">Form Selector Example</h1>
+		</div>
+		
+		<aside id = "leftSide">
+			<br/>
+			<br/>
+			<br/>
+			<label class = "italic">Selected Value:</label>
+			<input type = "text" readonly value="" id = "tbValue"></input>
+			
+			<br/>
+			<br/>
+			
+			<table id = "buttonsTable" border = 1>
+				<tr>
+					<td>
+						<input type = "button" value = "Read Text" id = "btnReadText" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type = "button" value = "Read Check Box" id = "btnReadCheckBox" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type = "button" value = "Read Select" id = "btnReadSelect"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type = "button" value = "Read Radio" id = "btnReadRadio"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type = "button" value = "Read Unchecked Radio" id = "btnReadUncheckedRadio" />
+					</td>
+				</tr>
+			</table>
+		</aside>
+		
+		<div id = "rightSide">
+		
+			<br/>
+			<div id = "images">
+				<img src = "images/hibernate.jpg" alt = "hibernate_logo" id = "hibernate" />
+				<img src = "images/jquery.png" alt = "jquery_logo" id = "jquery" />
+				<img src = "images/spring.jpg" alt = "spring_logo" id = "spring" />
+			</div>
+			
+			<fieldset>
+				<legend><h2>New User</h2></legend>
+				<div id = "form">
+					
+					<form>
+						
+						
+						<label>User Name</label>
+						<input type = "text" id = "tbUserName" name = "tbUserName"/>
+						<br/>
+						
+						<label>Password</label>
+						<input type = "password" id = "tbPassword" name = "tbPassword" />
+						<br/>
+						
+						<label>Skills</label>
+						<input type = "checkbox" value = "Java" id="cbJava" name = "skill">Java
+						<input type = "checkbox" value = ".NET" id="cbDotNet" name = "skill">.NET
+						<br/> 
+						
+						<label>City</label>
+						<select id = "cities" name = "cities">
+							<option value = "Chicago">Chicago</option>
+							<option value = "Boston">Boston</option>
+							<option value = "Toronto">Toronto</option>
+							<option value = "Gurgaon">Gurgaon</option>
+						</select>
+						<br/>
+						
+						<label>Agree to Terms</label>
+						<input type = "radio" name = "agree" value = "yes" checked>Yes
+						<input type = "radio" name = "agree" value = "no">No
+						<br/>
+						
+					</form>
+				</div> 
+			</fieldset>
+			
+		</div>
+	
+	</body>
+	
+	<footer class = "center">
+		<span>Show Core Examples</span>
+	</footer>
+</html>

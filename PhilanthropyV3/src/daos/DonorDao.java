@@ -28,16 +28,15 @@ public class DonorDao implements Dao<Donor>{
 		
 		try{
 			//ADD_DONOR(donor_id, donor_name, donor_email, donor_total, out param)
-			CallableStatement cstatement = con.prepareCall("{CALL ADD_DONOR(?,?,?,?,?)}");
+			CallableStatement cstatement = con.prepareCall("{CALL ADD_DONOR(?,?,?,?)}");
 			
 			cstatement.setInt(1, item.getDonorId());
 			cstatement.setString(2, item.getDonorName());
 			cstatement.setString(3, item.getDonorEmail());
-			cstatement.setDouble(4, item.getDonorTotalDonations());
-			cstatement.registerOutParameter(5, java.sql.Types.NUMERIC);
+			cstatement.registerOutParameter(4, java.sql.Types.NUMERIC);
 			
 			cstatement.execute();
-			result = cstatement.getInt(5);
+			result = cstatement.getInt(4);
 		}
 		catch(SQLException e){
 			System.out.println("Error calling ADD_DONOR with donor: " + item.toString());
@@ -58,13 +57,20 @@ public class DonorDao implements Dao<Donor>{
 			cstatement.execute();
 			
 			ResultSet results = (ResultSet) cstatement.getObject(2);
+			
+			while(results.next()){
+				donor = new Donor(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4));
+				return donor;
+			}
+			
+			/*
 			if(!results.first()){
 				System.out.println("No Donor with id " + id + " was found.");
 				return donor;
 			}
 			
 			donor = new Donor(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4));
-			return donor;
+			return donor;*/
 		}
 		catch(SQLException | NullValueException e){
 			System.out.println("Error calling FIND_DONOR with id " + id);

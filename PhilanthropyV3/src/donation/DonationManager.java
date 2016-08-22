@@ -1,5 +1,7 @@
 package donation;
 
+import java.util.Collection;
+
 import daos.DonationDao;
 import exceptions.NullValueException;
 import interfaces.Manager;
@@ -40,20 +42,39 @@ public class DonationManager implements Manager<Donation> {
 
 	@Override
 	public void remove(int identification) {
-		// TODO Auto-generated method stub
+		int rowRemoved = dao.remove(identification);
+		
+		switch(rowRemoved){
+		case 0:
+			System.out.println("Donation was not removed.");
+			break;
+		case 1:
+			System.out.println("Donation was removed.");
+			break;
+		default:
+			System.out.println("YOU GOT PROBLEMS!!!");
+			break;
+		}
 		
 	}
 
 	@Override
 	public String displayInformation(int identification) {
-		// TODO Auto-generated method stub
-		return null;
+		Donation result = dao.get(identification);
+		
+		return result.toString();
 	}
 
 	@Override
 	public String displayAllData() {
-		// TODO Auto-generated method stub
-		return null;
+		Collection<Donation> donations = dao.getAll();
+		
+		StringBuilder sb = new StringBuilder();
+		for(Donation d : donations){
+			sb.append(d.toString()).append("\n");
+		}
+		
+		return sb.toString();
 	}
 
 }

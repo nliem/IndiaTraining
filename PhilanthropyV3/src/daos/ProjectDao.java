@@ -10,6 +10,7 @@ import java.util.Collection;
 import exceptions.InvalidAmountException;
 import exceptions.NullValueException;
 import interfaces.Dao;
+import oracle.jdbc.driver.OracleTypes;
 import project.Project;
 import utilities.MySQLConnection;
 
@@ -17,7 +18,7 @@ public class ProjectDao implements Dao<Project>{
 	
 	private Connection con = null;
 	
-	private ProjectDao(){
+	public ProjectDao(){
 		super();
 		this.con = MySQLConnection.getMyOracleConnection();
 	}
@@ -27,16 +28,15 @@ public class ProjectDao implements Dao<Project>{
 		int result = 0;
 		
 		try{
-			CallableStatement cstatement = con.prepareCall("{CALL ADD_PROJECT(?,?,?,?,?,?)}");
+			CallableStatement cstatement = con.prepareCall("{CALL ADD_PROJECT(?,?,?,?,?)}");
 			cstatement.setInt(1, item.getProjectId());
 			cstatement.setString(2, item.getProjectName());
 			cstatement.setString(3, item.getProjectDescription());
-			cstatement.setDouble(4, item.getProjectCollectedAmount());
-			cstatement.setDouble(5, item.getProjectCollectedAmount());
-			cstatement.registerOutParameter(6, java.sql.Types.NUMERIC);
+			cstatement.setDouble(4, item.getProjectCost());
+			cstatement.registerOutParameter(5, java.sql.Types.NUMERIC);
 			
 			cstatement.execute();
-			result = cstatement.getInt(6);
+			result = cstatement.getInt(5);
 			return result;
 		}
 		catch(SQLException e){
@@ -54,17 +54,23 @@ public class ProjectDao implements Dao<Project>{
 		try{
 			CallableStatement cstatement = con.prepareCall("{CALL FIND_PROJECT(?,?)}");
 			cstatement.setInt(1, id);
-			cstatement.registerOutParameter(2, java.sql.Types.REF_CURSOR);
+			cstatement.registerOutParameter(2, OracleTypes.CURSOR);
 			cstatement.execute();
 			
 			ResultSet results = (ResultSet) cstatement.getObject(2);
+			
+			while(results.next()){
+				project = new Project(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4),results.getDouble(5));
+				return project;
+			}
+			/*
 			if(!results.first()){
 				System.out.println("No Project found with id " + id);
 				return project;
 			}
 			
 			project = new Project(results.getInt(1), results.getString(2), results.getString(3), results.getDouble(4),results.getDouble(5));
-		}
+		*/}
 		catch(SQLException | NullValueException | InvalidAmountException e){
 			System.out.println("Error calling FIND_PROJECT with id " + id);
 			e.printStackTrace();
@@ -79,7 +85,7 @@ public class ProjectDao implements Dao<Project>{
 		
 		try{
 			CallableStatement cstatement = con.prepareCall("{CALL FIND_ALL_PROJECTS(?)}");
-			cstatement.registerOutParameter(1, java.sql.Types.REF_CURSOR);
+			cstatement.registerOutParameter(1, OracleTypes.CURSOR);
 			cstatement.execute();
 			ResultSet results = (ResultSet) cstatement.getObject(1);
 			
