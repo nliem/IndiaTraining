@@ -87,6 +87,10 @@ public class Donor implements Comparable<Donor> {
     this.email = email;
   }
   
+  public Donor(){
+	  super();
+  }
+  
   @Override 
   public String toString(){
     StringBuilder builder = new StringBuilder();

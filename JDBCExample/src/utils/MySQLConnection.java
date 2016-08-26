@@ -1,7 +1,6 @@
 package utils;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 import java.sql.*;
 import java.util.Properties;
 
@@ -13,8 +12,10 @@ public class MySQLConnection {
 		try{
 			Properties props = new Properties();
 			
-			FileInputStream inStream = new FileInputStream(new File("DbConnection.properties"));
+			//FileInputStream inStream = new FileInputStream(new File("DbConnection.properties"));
 		
+			//works in core java and EE
+			InputStream inStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("DbConnection.properties");
 			props.load(inStream);
 			
 			Class.forName(props.getProperty("db.driverClass"));
@@ -29,5 +30,10 @@ public class MySQLConnection {
 		
 		return con;
 	}
+	
+	public static void main(String[] args){
+		System.out.println(getMyOracleConnection());
+	}
+	
 
 }
