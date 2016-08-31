@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+
+#bookingHeader{
+	text-align: center;
+	font-family: sans-serif;
+}
+
+input, select{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	/*padding: 5px;*/
+}
+
+label{
+	font-style: sans-serif;
+	padding: 10px;	
+}
+
+#bookingTable{
+	margin: 0 auto;
+}

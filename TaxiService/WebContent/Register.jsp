@@ -6,11 +6,13 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Insert title here</title>
 	</head>
-	
 	<body>
-	
-		<h1>You are valid: ${valid} </h1>
+		<jsp:useBean id = "user" class = "user.TaxiUser" scope = "session" />
 		
-		<h1>User was added: ${added} </h1>
+		<jsp:setProperty property = "*" name = "user" />
+		
+		<jsp:forward page = "/Writer">
+			<jsp:param value = "user" name = "userBean" />
+		</jsp:forward>
 	</body>
 </html>

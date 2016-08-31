@@ -112,7 +112,6 @@ public class TaxiServiceDao implements Dao<TaxiUser> {
       cstatement.registerOutParameter(2, java.sql.Types.VARCHAR);
 
       cstatement.execute();
-
       password = cstatement.getString(2);
     } catch (SQLException exception) {
       exception.printStackTrace();

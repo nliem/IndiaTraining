@@ -29,4 +29,14 @@
     <servlet-name>Writer</servlet-name>
     <url-pattern>/Writer</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BookNow</display-name>
+    <servlet-name>BookNow</servlet-name>
+    <servlet-class>servlets.BookNow</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookNow</servlet-name>
+    <url-pattern>/BookNow</url-pattern>
+  </servlet-mapping>
 </web-app>

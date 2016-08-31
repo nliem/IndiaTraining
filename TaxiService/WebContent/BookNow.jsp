@@ -8,9 +8,13 @@
 	</head>
 	
 	<body>
-	
-		<h1>You are valid: ${valid} </h1>
 		
-		<h1>User was added: ${added} </h1>
+		<jsp:useBean id = "booking" class = "booking.Booking" scope = "session" />
+		
+		<jsp:setProperty property="*" name="user"/>
+		
+		<jsp:forward page = "/BookNow">
+			<jsp:param value = "booking" name = "bookingBean" />
+		</jsp:forward> 
 	</body>
 </html>
