@@ -15,9 +15,10 @@
 		<div id = "leftSide">
 		
 			<h2 id = "loginSpan">User Login</h2>
-			<form action = "Validate.jsp" id = "login">
+			<h2 id = "registerSpan" hidden = "true">New User Registration</h2>
+			<form action = "Validate.jsp" id = "loginForm">
 			
-				<table border="1" id = "formTable" >
+				<table border="1" id = "loginTable" >
 					<tr>
 						<td><label for = "email">Email</label></td>
 						<td><input type = "email" required name = "email" id = "email"></td>
@@ -47,6 +48,52 @@
 					</tr>
 				</table>
 			</form>
+			
+			<form action = "Register.jsp" id = "registerForm" hidden = "true">
+				
+				<table border = "1" id = "registerTable">
+					<tr>
+						<td><label for = "name">Name</label></td>
+						<td><input type = "text" required name = "name" id = "name" /></td>
+					</tr>
+					
+					<tr>
+						<td><label for = "email">Email</label></td>
+						<td><input type = "email" required name = "email" id = "email"/></td>
+					</tr>
+					
+					<tr>
+						<td><label for = "password">Password</label></td>
+						<td><input type = "password" required name = "password" id = "password"></td>
+					</tr>
+					
+					<tr>
+						<td><label for = "telephone">Telephone</label></td>
+						<td><input type = "tel" required name = "telephone" id = "telephone" /></td>
+					</tr>
+					
+					<tr>
+						<td><label for = "city">City</label></td>
+						<td>
+							<select id = "city" name = "city">
+								<option value = "Chicago">Chicago</option>
+								<option value = "Honolulu">Honolulu</option>
+								<option value = "Toronto">Toronto</option>
+								<option value = "Boston">Boston</option>
+								<option value = "Gurgaon">Gurgaon</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><input type = "button" id = "btnReset" value = "Reset">
+						<td><input type = "submit" value = "Register" id = "btnSubmit" /></td>
+					</tr>
+					
+				</table>
+			</form>
+			
+			
 		
 		
 		</div>
