@@ -35,11 +35,21 @@ public class Writer extends HttpServlet {
 		
 		boolean added = TaxiUserManager.getInstance().add(user);
 		
-		System.out.println(added ? "User was added!" : "User was not added...");
+		if(!added){
+			request.setAttribute("message", "Sorry, a user with that email is already registered. Please try again.");
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			
+			dispatcher.forward(request, response);
+		}
 		
-		request.setAttribute("added", added);
+		request.setAttribute("Name", user.getName());
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("test.jsp");
+		request.setAttribute("Telephone", user.getTelephone());
+		
+		request.setAttribute("Email", user.getEmail());
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Booking.jsp");
 		
 		dispatcher.forward(request, response);
 		

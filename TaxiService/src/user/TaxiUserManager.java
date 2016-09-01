@@ -7,11 +7,11 @@ import utils.GlobalLogger;
 public class TaxiUserManager implements Manager<TaxiUser> {
 
   private static TaxiUserManager instance;
-  private TaxiServiceDao dao;
+  private TaxiUserDao dao;
   private Logger log = GlobalLogger.getLogger();
  
   private TaxiUserManager() {
-    this.dao = new TaxiServiceDao();
+    this.dao = new TaxiUserDao();
   }
 
   /**

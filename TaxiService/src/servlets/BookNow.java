@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import booking.Booking;
 import taxi.Taxi;
 import taxi.TaxiManager;
 
@@ -30,13 +31,20 @@ public class BookNow extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Got to BookNow.java!!!");
+		
 		HttpSession session = request.getSession();
 		
-		Taxi taxi = (Taxi)session.getAttribute("taxi");
+		Booking booking = (Booking)session.getAttribute("booking");
 		
-		Collection<Taxi> taxis = TaxiManager.getInstance().findLocationTaxis(taxi.getLocation());
+		System.out.println("BOOKING RECEIVED IN BOOKNOW.JAVA:\n" + booking);
 		
+		Collection<Taxi> taxis = TaxiManager.getInstance().findLocationTaxis(booking.getPickup());
+			
 		request.setAttribute("taxis", taxis);
+		
+		
+		request.setAttribute("location", booking.getPickup());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("AvailableCabs.jsp");
 		
@@ -48,7 +56,6 @@ public class BookNow extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

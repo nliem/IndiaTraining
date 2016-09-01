@@ -52,14 +52,55 @@ public class TaxiDao implements Dao<Taxi> {
 
 	@Override
 	public int remove(String identifier) {
-		// TODO Auto-generated method stub
-		return 0;
+int rowRemoved = 0;
+		
+		if(identifier == null){
+			return rowRemoved;
+		}
+		
+		try{
+			CallableStatement cstatement = con.prepareCall("{CALL REMOVE_TAXI(?,?)}");
+			
+			cstatement.setString(1, identifier);
+			cstatement.registerOutParameter(2, java.sql.Types.NUMERIC);
+			
+			cstatement.execute();
+			
+			rowRemoved = cstatement.getInt(2);
+		}
+		catch(SQLException exception){
+			exception.printStackTrace();
+		}
+		
+		return rowRemoved;
 	}
 
 	@Override
 	public Taxi findEntry(String identifier) {
-		// TODO Auto-generated method stub
-		return null;
+		Taxi taxi = null;
+		
+		try{
+			CallableStatement cstatement = con.prepareCall("{CALL FIND_TAXI(?,?)}");
+			
+			cstatement.setString(1, identifier);
+			cstatement.registerOutParameter(2,OracleTypes.CURSOR);
+			
+			cstatement.execute();
+			
+			ResultSet result = (ResultSet) cstatement.getObject(2);
+			
+			while(result.next()){
+				taxi = new Taxi(result.getString(1), result.getString(2), result.getString(3),
+						result.getString(4), result.getShort(5));
+				
+				return taxi;
+			}
+		}
+		catch(SQLException exception){
+			exception.printStackTrace();
+		}
+		
+		return taxi;
 	}
 	
 	public Collection<Taxi> findLocationTaxis(String location){

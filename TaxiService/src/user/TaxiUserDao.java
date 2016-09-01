@@ -9,11 +9,11 @@ import oracle.jdbc.driver.OracleTypes;
 import utils.MySQLConnection;
 import interfaces.Dao;
 
-public class TaxiServiceDao implements Dao<TaxiUser> {
+public class TaxiUserDao implements Dao<TaxiUser> {
 
   private Connection con = null;
 
-  public TaxiServiceDao() {
+  public TaxiUserDao() {
     super();
     this.con = MySQLConnection.getMyOracleConnection();
   }

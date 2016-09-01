@@ -1,42 +1,44 @@
 package booking;
 
+import java.sql.Timestamp;
 import java.text.DecimalFormat;
-import java.util.Date;
 
 public class Booking {
 	
-	private int id;
+	private String id;
 	private String customeremail;
 	private String cabnumber;
 	private String vehiclename;
 	private String pickup;
 	private String dropoff;
+	private String chargetype;
 	private double fare;
-	private Date tripdate;
+	private Timestamp tripdate;
 	private String status;
 	
 	public Booking(){
 		super();
 	}
 	
-	public Booking(int id, String customeremail, String cabnumber,
+	public Booking(String id, String customeremail, String cabnumber,
 			String vehiclename, String pickup, String dropoff,
-			double fare, Date tripdate, String status){
+			String chargetype, double fare, Timestamp tripdate, String status){
 		this.id = id;
 		this.customeremail = customeremail;
 		this.cabnumber = cabnumber;
 		this.vehiclename = vehiclename;
 		this.pickup = pickup;
 		this.dropoff = dropoff;
+		this.chargetype = chargetype;
 		this.fare = fare;
 		this.tripdate = tripdate;
 		this.status = status;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getCustomeremail() {
@@ -69,16 +71,22 @@ public class Booking {
 	public void setDropoff(String dropoff) {
 		this.dropoff = dropoff;
 	}
+	public String getChargetype(){
+		return chargetype;
+	}
+	public void setChargetype(String chargetype){
+		this.chargetype = chargetype;
+	}
 	public double getFare() {
 		return fare;
 	}
 	public void setFare(double fare) {
 		this.fare = fare;
 	}
-	public Date getTripdate() {
+	public Timestamp getTripdate() {
 		return tripdate;
 	}
-	public void setTripdate(Date tripdate) {
+	public void setTripdate(Timestamp tripdate) {
 		this.tripdate = tripdate;
 	}
 	public String getStatus() {
@@ -98,8 +106,9 @@ public class Booking {
 		sb.append("Customer Email:\t" + this.customeremail).append("\n");
 		sb.append("Cab Number:\t" + this.cabnumber).append("\n");
 		sb.append("Vehicle Name:\t" + this.vehiclename).append("\n");
-		sb.append("Pickup:\t" + this.pickup).append("\n");
+		sb.append("Pickup:\t\t" + this.pickup).append("\n");
 		sb.append("Dropofff:\t" + this.dropoff).append("\n");
+		sb.append("Charge Type:\t" + this.chargetype).append("\n");
 		sb.append("Trip Date: " + this.tripdate + "\tFare: $" + df.format(this.fare));
 		sb.append("\n").append("Status:\t" + this.status).append("\n");
 		sb.append("---------------------------------------").append("\n");

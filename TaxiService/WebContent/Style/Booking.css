@@ -20,3 +20,8 @@ label{
 #bookingTable{
 	margin: 0 auto;
 }
+
+#errorDiv{
+	color: red;
+	padding: 10px;
+}

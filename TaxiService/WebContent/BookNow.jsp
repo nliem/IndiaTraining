@@ -11,7 +11,7 @@
 		
 		<jsp:useBean id = "booking" class = "booking.Booking" scope = "session" />
 		
-		<jsp:setProperty property="*" name="user"/>
+		<jsp:setProperty property="*" name="booking"/>
 		
 		<jsp:forward page = "/BookNow">
 			<jsp:param value = "booking" name = "bookingBean" />

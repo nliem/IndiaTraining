@@ -7,6 +7,7 @@
 		<script type = "text/javascript" src = "Scripts/Booking.js"></script>
 		<link type = "text/css" rel = "stylesheet" href = "Style/Booking.css" />
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 		<title>Insert title here</title>
 	</head>
 	
@@ -16,12 +17,12 @@
 	
 		<h1 id = "bookingHeader">Book Taxi</h1>
 		
-		<form id = "bookingForm" >
+		<form id = "bookingForm" action = "BookNow.jsp" >
 		
 			<table border = "1" id = "bookingTable">
 				<tr id = "emailRow">
 					<td><label for = "email">Email</label></td>
-					<td colspan="2"><input type = "email" value ="${Email}" name = "email" id = "email"/></td>
+					<td colspan="2"><input type = "email" value ="${Email}" name = "customeremail" id = "customeremail"/></td>
 				</tr>
 				<tr>
 					<td><label for = "name">Name</label></td>
@@ -34,9 +35,9 @@
 				</tr>
 				
 				<tr>
-					<td><label for = "bookingtype">Booking Type</label></td>
+					<td><label for = "chargetype">Booking Type</label></td>
 					<td colspan="2">
-						<select name = "bookingtype" id = "bookingtype">
+						<select name = "chargetype" id = "chargetype">
 							<option value = "METER">Meter</option>
 							<option value = "PACKAGE">Package</option>
 							<option value = "OUTSERVICE">Out Service</option>					
@@ -45,9 +46,9 @@
 				</tr>
 				
 				<tr>
-					<td><label for = "pickuplocation">Pickup Location</label></td>
+					<td><label for = "pickup">Pickup Location</label></td>
 					<td colspan="2">
-						<select name = "pickuplocation" id = "pickuplocation">
+						<select name = "pickup" id = "pickup">
 							<option value = "null" disabled selected>--Select a City--</option>
 							<option value = "Chicago">Chicago</option>
 							<option value = "Honolulu">Honolulu</option>
@@ -59,9 +60,9 @@
 				</tr>
 				
 				<tr>
-					<td><label for = "dropofflocation">Dropoff Location</label></td>
+					<td><label for = "dropoff">Dropoff Location</label></td>
 					<td colspan="2">
-						<select name = "dropofflocation" id = "dropofflocation">
+						<select name = "dropoff" id = "dropoff">
 							<option value = "null" disabled selected>--Select a City--</option>
 							<option value = "Chicago">Chicago</option>
 							<option value = "Honolulu">Honolulu</option>
@@ -79,6 +80,10 @@
 				</tr>
 			</table>
 		</form>
+		
+		<div id = "errorDiv">
+				<h2><c:out value = "${bookingError}" /></h2>
+		</div>
 	
 	</body>
 </html>
