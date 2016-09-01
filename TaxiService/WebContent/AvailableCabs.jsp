@@ -29,7 +29,7 @@
 					<td><c:out value = "${taxi.getCabnumber()}" /></td>
 					<td><c:out value = "${taxi.getCabtype()}" /></td>
 					<td><c:out value = "${taxi.getDrivername()}"/></td>
-					<td><a href = "/BookCab?cabNumber=${taxi.getCabnumber()}">Book</a></td>
+					<td><a href = "BookCab?cabNumber=${taxi.getCabnumber()}">Book</a></td>
 				</tr>
 			
 			</c:forEach>

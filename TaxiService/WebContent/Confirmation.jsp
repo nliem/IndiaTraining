@@ -14,15 +14,13 @@
 	
 		<h1 id = "confirmationHeader">Your booking is confirmed!</h1>
 		
-		<br/>
-		
 		<h4 id = "subHeader">Please wait, and your cab will arrive shortly. Your booking details are listed below.</h4>
 		
 		<br/>
 		<hr/>
 		
 		<div id = "bookingInformation">
-			<c:out value = "${completeBooking.toString()}"/>
+			${completeBooking.toString()}
 		</div>
 	
 	</body>

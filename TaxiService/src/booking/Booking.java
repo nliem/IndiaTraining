@@ -101,17 +101,17 @@ public class Booking {
 		DecimalFormat df = new DecimalFormat("#.00");
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("----------BOOKING INFORMATION----------").append("\n");
-		sb.append("Booking #:\t" + this.id).append("\n");
-		sb.append("Customer Email:\t" + this.customeremail).append("\n");
-		sb.append("Cab Number:\t" + this.cabnumber).append("\n");
-		sb.append("Vehicle Name:\t" + this.vehiclename).append("\n");
-		sb.append("Pickup:\t\t" + this.pickup).append("\n");
-		sb.append("Dropofff:\t" + this.dropoff).append("\n");
-		sb.append("Charge Type:\t" + this.chargetype).append("\n");
+		sb.append("----------BOOKING INFORMATION----------").append("<br/>");
+		sb.append("Booking #:\t" + this.id).append("<br/>");
+		sb.append("Customer Email:\t" + this.customeremail).append("<br/>");
+		sb.append("Cab Number:\t" + this.cabnumber).append("<br/>");
+		sb.append("Vehicle Name:\t" + this.vehiclename).append("<br/>");
+		sb.append("Pickup:\t\t" + this.pickup).append("<br/>");
+		sb.append("Dropofff:\t" + this.dropoff).append("<br/>");
+		sb.append("Charge Type:\t" + this.chargetype).append("<br/>");
 		sb.append("Trip Date: " + this.tripdate + "\tFare: $" + df.format(this.fare));
-		sb.append("\n").append("Status:\t" + this.status).append("\n");
-		sb.append("---------------------------------------").append("\n");
+		sb.append("<br/>").append("Status:\t" + this.status).append("<br/>");
+		sb.append("---------------------------------------").append("<br/>");
 		
 		return sb.toString();
 	}

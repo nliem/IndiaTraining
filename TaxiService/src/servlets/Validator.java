@@ -46,6 +46,8 @@ public class Validator extends HttpServlet {
 		TaxiUser fullDetails = TaxiUserManager.getInstance().findEntry(user.getEmail());
 		
 		if(isValid){
+			request.setAttribute("sessionUser", fullDetails.getName());
+			
 			request.setAttribute("Name", fullDetails.getName());
 			
 			request.setAttribute("Telephone", fullDetails.getTelephone());

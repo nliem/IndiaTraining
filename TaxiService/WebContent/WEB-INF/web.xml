@@ -39,4 +39,27 @@
     <servlet-name>BookNow</servlet-name>
     <url-pattern>/BookNow</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BookCab</display-name>
+    <servlet-name>BookCab</servlet-name>
+    <servlet-class>servlets.BookCab</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookCab</servlet-name>
+    <url-pattern>/BookCab</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>servlets.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
 </web-app>

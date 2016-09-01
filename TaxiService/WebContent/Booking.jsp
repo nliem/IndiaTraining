@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" errorPage="ErrorPage.jsp"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,12 +8,26 @@
 		<link type = "text/css" rel = "stylesheet" href = "Style/Booking.css" />
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-		<title>Insert title here</title>
+		<title>Ramesh Taxi</title>
 	</head>
+	
+	
 	
 	<%@include file = "Header.jsp" %>
 	
 	<body>
+		<c:if test = '${sessionUser == null}'>
+			<jsp:forward page = "index.jsp">
+				
+				<jsp:param value = "Log in to access the booking page." name = "message" />
+			</jsp:forward>
+		</c:if>
+		
+		<c:if test = '${sessionUser == "Guest"}'>
+			<jsp:forward page = "index.jsp">
+				<jsp:param value = "Log in to access the booking page." name = "message" />
+			</jsp:forward>
+		</c:if>
 	
 		<h1 id = "bookingHeader">Book Taxi</h1>
 		
@@ -76,7 +90,7 @@
 				<tr>
 					<td><input type = "button" value = "Reset" id = "btnReset"></td>
 					<td><input type = "submit" formaction = "BookNow.jsp" value = "Book Now"/></td>
-					<td><input type = "submit" formaction = "BookLater.jsp" value = "Book Later"/></td>
+					<td><input type = "submit" formaction = "UnderConstruction.jsp" value = "Book Later"/></td>
 				</tr>
 			</table>
 		</form>
