@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Bean with the name 'patient' used in autowiring for doctorBean3 -->
+	<bean id="patient" class="com.training.domains.Patient">
+		<property name = "patientId" value = "101"/>
+		<property name = "patientName" value = "Ashutosh" />
+		<property name="patientType" value = "Out Patient" />
+	</bean>
+	
+	<!-- Basic bean declaration with property tags -->
+	<bean id = "patientBean1" class = "com.training.domains.Patient" scope = "prototype">
+		<property name = "patientId" value = "101"/>
+		<property name = "patientName" value = "Ramesh" />
+		<property name="patientType" value = "Out Patient" />
+	</bean>
+	
+	<!-- Bean declaration using the constructor namespace -->
+	<bean id="patientBean2" class="com.training.domains.Patient" c:patientId="102" c:patientName="Ganesh" c:patientType="In Patient" />
+	
+	<!-- Bean declaration using constructor-arg tags -->
+	<!-- Can combine constructor-arg & property but NOT BEST PRACTICE -->
+	<bean id="patientBean3" class="com.training.domains.Patient">
+		<constructor-arg name="patientId" value="103"></constructor-arg>
+		<constructor-arg name="patientName" value="Rajesh"></constructor-arg>
+		<constructor-arg name="patientType" value="ICU"></constructor-arg>
+	</bean>
+	
+	<!-- Bean declaration using the property namespace -->
+	<bean id = "doctorBean1" class = "com.training.domains.Doctor" p:doctorCode = "1001" p:doctorName = "Suresh"
+		p:specialization="ENT" p:patient-ref="patientBean1"/>
+		
+	<!-- Bean declaration with a collection dependancy injection -->
+	<bean id = "doctorBean2" class="com.training.domains.Doctor" p:doctorCode="1002" p:doctorName="Sumesh"
+		p:specialization="OBGYN" p:patient-ref="patientBean2">
+		<property name="patientList">
+			<list value-type="com.training.domains.Patient">
+				<ref bean="patientBean1"/>
+				<ref bean="patientBean2"/>
+				<ref bean="patientBean3"/>
+			</list>
+		</property>	
+	</bean>
+
+	<!-- Bean declaration with AUTOWIRING!!! Doctor.patient will equal the bean with id patient (see above) -->
+	<bean id="doctorBean3" class="com.training.domains.Doctor" autowire="byName">
+		<property name="doctorCode" value="1003"/>
+		<property name="doctorName" value="Tinku"/>
+		<property name="specialization" value="Optometry"/>
+	</bean>
+	
+	<!-- Bean with collection DI... Note how map tag has key-type & value-type and
+	each entry has a key and value!! -->
+	<bean id="doctorBean4" class="com.training.domains.Doctor" autowire="byName">
+		<property name="doctorCode" value="1004"/>
+		<property name="doctorName" value="Srivatsan"/>
+		<property name="specialization" value="Cardio"/>
+		<property name="patientList">
+			<list value-type="com.training.domains.Patient">
+				<ref bean="patientBean1"/>
+				<ref bean="patientBean2"/>
+				<ref bean="patientBean3"/>
+			</list>
+		</property>	
+		<property name="supportStaff">
+			<map value-type="java.lang.String" key-type="java.lang.String">
+				<entry key="Cleaning" value="Natalie"/>
+				<entry key="Wages" value="Nate"/>
+				<entry key="Secratary" value="Michelle"/>
+			</map>
+		</property>
+	</bean>
+</beans>
