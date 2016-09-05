@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id = "customer" class = "com.training.domains.Customer">
+		<property name = "customerId" value = "1001" />
+		<property name = "customerName" value = "Natalie Liem" />
+		<property name = "customerAddress" ref="addressBean1" />
+ 	</bean>
+ 	
+ 	<bean id = "addressBean1" class = "com.training.domains.Address">
+ 		<property name = "street" value = "431 S. Dearborn Street #708" />
+ 		<property name="city" value = "Chicago" />
+ 		<property name = "state" value = "Illinois" />
+ 		<property name = "zipCode" value = "60605" />
+ 		<property name = "country" value = "United States" />
+ 	</bean>
+ 	
+ 	<bean id = "itemBean1" class = "com.training.domains.Item" c:itemId="101" c:itemName="Donut"
+ 		c:ratePerUnit="30.00" />
+ 	
+ 	<bean id = "itemBean2" class = "com.training.domains.Item">
+ 		<constructor-arg name = "itemId" value = "102"/>
+ 		<constructor-arg name = "itemName" value = "Cake"/>
+ 		<constructor-arg name = "ratePerUnit" value = "45.00" />
+ 	</bean>
+ 		
+ 	<bean id = "itemBean3" class = "com.training.domains.Item" c:itemId="103" c:itemName = "Chocolate Bar"
+ 		c:ratePerUnit = "20.00" />
+ 		
+ 	<bean id = "invoiceBean" class = "com.training.domains.Invoice" autowire = "byName" init-method="init" destroy-method="cleanUp">
+ 		<property name = "invoiceNumber" value = "100001" />
+ 		<property name = "amount" value = "95.00" />
+ 		<property name = "itemList">
+ 			<list value-type = "com.training.domains.Item">
+ 				<ref bean = "itemBean1"/>
+ 				<ref bean = "itemBean2" />
+ 				<ref bean = "itemBean3" />
+ 			</list>
+ 		</property>
+ 	</bean>
+ 	
+
+</beans>
