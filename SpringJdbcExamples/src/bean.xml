@@ -17,7 +17,7 @@
 	 -->
 	 
 	 <bean id="propertyConfiguration" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-	 	p:location="DbConnection.properties" />
+	 	p:location="classpath:DbConnection.properties" />
 	 	
 	 <bean id="dataSrc" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 	 	p:driverClassName="${db.driverClass}" p:username="${db.username}" p:password="${db.password}"

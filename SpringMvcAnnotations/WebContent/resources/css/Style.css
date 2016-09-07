@@ -1,0 +1,14 @@
+@CHARSET "ISO-8859-1";
+
+.tableStyle{
+	border:2px solid blue;
+	width: 75%;
+	margin-right: auto;
+	margin-left: auto;
+	border-collapse: collapse;
+}
+
+tr, td, th{
+	text-align: left;
+	border: 2px solid blue;
+}
