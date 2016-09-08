@@ -23,4 +23,18 @@
 	
 	<bean id="mdlView" class="org.springframework.web.servlet.ModelAndView" />
 	
+	<mvc:interceptors>
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" 
+	p:defaultLocale="fr"/>
+	</mvc:interceptors>
+	
+	<bean id="interceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+	p:paramName="lang" />
+	
+	<bean id="annotationHandler" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"
+	p:interceptors-ref="interceptor"/>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+	p:basename="classpath:Messages" />
+	
 </beans>

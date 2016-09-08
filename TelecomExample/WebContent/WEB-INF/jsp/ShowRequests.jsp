@@ -8,6 +8,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Ramesh Telecom</title>
 	</head>
+	
+	<%@ include file="Header.jsp" %>
+	
 	<body>
 	
 		<h1>Request List</h1>

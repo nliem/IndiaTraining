@@ -1,2 +1,13 @@
 @CHARSET "ISO-8859-1";
 
+#welcomeHeader{
+	font-family: 'Raleway', sans-serif;
+	padding: 20px;
+	font-weight: bold;
+}
+
+#fillerContent{
+	font-family: 'Raleway', sans-serif;
+	padding: 30px;
+}
+

@@ -9,6 +9,8 @@
 		<title>Ramesh Telecom</title>
 	</head>
 	
+	<%@ include file="Header.jsp" %>
+	
 	<body>
 	
 		<h2>Please fill out information about your request.</h2>

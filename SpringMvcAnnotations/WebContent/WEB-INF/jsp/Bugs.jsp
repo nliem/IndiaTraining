@@ -4,16 +4,17 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Ramesh Telecom</title>
+		<title>BUGS</title>
 	</head>
 	
-	<%@ include file="Header.jsp" %>
-	
 	<body>
-		<h1>Request Successfully Submitted!</h1>
-	
-		${command}
+		Error cause: ${cause}
+		<br/>
 		
-		<a href="/TelecomExample">GO HOME</a>
+		Exception class: ${exceptionClass}
+		<br/>
+		
+		Request uri: ${rqeuestUri}
+		<br/>
 	</body>
 </html>

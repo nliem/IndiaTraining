@@ -10,4 +10,9 @@ public class FirstController {
 	public String welcomePage(){
 		return "index";
 	}
+	
+	@RequestMapping("studentDetails")
+	public String studentPage(){
+		return "GetStudentDetails";
+	}
 }

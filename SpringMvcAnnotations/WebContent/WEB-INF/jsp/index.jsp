@@ -29,6 +29,10 @@
 		</form>
 		
 		<a href="addCustomer/showAll">Show All Customer</a>
+		
+		<a href="studentDetails">Student Details</a>
+		
+		<a href="login?lang=fr">Locale Login</a>
 	
 	</body>
 </html>
