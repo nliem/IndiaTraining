@@ -12,14 +12,18 @@
 	
 	<context:component-scan base-package="com.training" />
 	
+	<context:property-placeholder location="classpath:DbConnection.properties"/>
+	
 	<mvc:annotation-driven />
 	
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 	
 	<bean id="mdlView" class="org.springframework.web.servlet.ModelAndView" />
 	
+	<!-- 
 	<bean id="propertyConfiguration" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
 	p:location="classpath:DbConnection.properties" />
+	 -->
 	
 	<bean id="dataSrc" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 	p:driverClassName="${db.driverClass}" p:username="${db.username}" p:password="${db.password}"
