@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 13, 2016 11:45:34 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.services.entity.Donor" table="DONOR">
+        <id name="handPhone" type="long">
+            <column name="HANDPHONE" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="donorName" type="java.lang.String">
+            <column name="DONORNAME" />
+        </property>
+        
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        
+        <component name="address" class="org.services.components.Address">
+        	<property name="addressLine1" column="DONOR_ADDRESSLINE1"></property>
+        	<property name="addressLine2" column="DONOR_ADDRESSLINE2"></property>
+        	<property name="city" column="DONOR_CITY"></property>
+        	<property name="zipCode" column="DONOR_ZIPCODE"></property>
+        </component>
+        
+        <set name="donationList" table="DONATION" cascade="all" fetch="join" lazy="false">
+        	<key column="DONORID"></key>
+        	<one-to-many class="org.services.entity.Donation" />
+        </set>
+    </class>
+</hibernate-mapping>

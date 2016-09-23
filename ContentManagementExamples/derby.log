@@ -1,0 +1,18 @@
+----------------------------------------------------------------
+2016-09-16 04:49:10.182 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-0157-3153-adbe-0000071cd9b8
+on database directory C:\Users\nliem\Desktop\IndiaTraining\ContentManagementExamples\repository\version\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2016-09-16 04:49:11.480 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 888c4022-0157-3153-adbe-0000071cd9b8
+on database directory C:\Users\nliem\Desktop\IndiaTraining\ContentManagementExamples\repository\workspaces\default\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2016-09-16 04:49:13.123 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 6965c036-0157-3153-adbe-0000071cd9b8
+on database directory C:\Users\nliem\Desktop\IndiaTraining\ContentManagementExamples\repository\workspaces\security\db  
+
+Database Class Loader started - derby.database.classpath=''

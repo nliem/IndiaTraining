@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+
+label{
+	display: inline-block;
+	width: 150px;
+	text-align: right;
+}
+
+#submitBtn{
+	background-color: #76eec6;
+}
